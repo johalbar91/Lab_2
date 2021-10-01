@@ -5,6 +5,10 @@ const archivo = express.Router();
 const passport = require('passport');
 const User = require('../modelado/registro');
 // ahora damos iniciio a la sesion
+archivo.get('/', (req,res, next)=>{
+    res.render('inicio');
+})
+// ahora damos iniciio a la sesion
 archivo.get('/iniciarSesion', (req,res, next)=>{
     res.render('iniciarSesion');
 })
@@ -48,7 +52,7 @@ archivo.post('/iniciarSesion', async(req, res) =>{
             }else if (!isMatch){
                 res.send("La contraseña no es correcta")
             }else {
-                res.send("Bienvenido....pagina esta en construcción")
+                res.render('home')
             }
         })
      }else {
